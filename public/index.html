@@ -11,6 +11,7 @@
   <body>
     <div id="app">
       <input v-model="newTodo" v-on:keyup.enter="send">
+      <button v-on:click="send">查找</button>
       <ul>
         <li v-for="todo in todos">
           <a href="{{ todo.id }}">{{ todo.id }}</a>
