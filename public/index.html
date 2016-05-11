@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Vue.js Firebase example</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- Vue -->
+    <script src="vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <input v-model="newTodo" v-on:keyup.enter="send">
+      <ul>
+        <li v-for="todo in todos">
+          <a href="{{todo.id}}">{{ todo.id }}</a>
+          <span>{{ todo.name }}</span>
+        </li>
+      </ul>
+    </div>
+    <script src="app.js"></script>
+    <script src="zepto.js"></script>
+  </body>
+</html>
