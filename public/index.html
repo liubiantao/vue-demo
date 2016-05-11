@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Vue.js Firebase example</title>
+    <title>查找摄影师</title>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <link rel="stylesheet" type="text/css" href="style.css">
     <!-- Vue -->
-    <script src="vue.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.22/vue.min.js"></script>
   </head>
   <body>
     <div id="app">
       <input v-model="newTodo" v-on:keyup.enter="send">
       <ul>
         <li v-for="todo in todos">
-          <a href="{{todo.id}}">{{ todo.id }}</a>
+          <a href="{{ todo.id }}">{{ todo.id }}</a>
           <span>{{ todo.name }}</span>
         </li>
       </ul>
     </div>
     <script src="app.js"></script>
-    <script src="zepto.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
   </body>
 </html>
