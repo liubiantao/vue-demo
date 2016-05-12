@@ -16,6 +16,7 @@
         <br />
         <button class="btn btn-lg btn-block btn-raised btn-primary" v-on:click="send">查找</button>
       </div>
+      
       <div class="ul">
         <div v-for="todo in todos">
           <div class="card">
@@ -35,6 +36,13 @@
           </div>
         </div>
       </div>
+
+      <div v-if=showError class="bs-component">
+        <div class="alert alert-dismissible alert-warning">
+          <h4>没有找到摄影师!</h4>
+        </div>
+      </div>
+
     </div>
     <script src="app.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>

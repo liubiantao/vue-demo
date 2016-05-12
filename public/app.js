@@ -2,7 +2,8 @@ new Vue({
   el: '#app',
   data: {
     newTodo: '',
-    todos: []
+    todos: [],
+    showError: false
   },
   methods: {
     send: function() {
@@ -14,9 +15,14 @@ new Vue({
       this.todos = []
       var that = this
       function show(data) {
-        data.Result.map(function (x) {
-          that.todos.push({id: 'http://m.aiyaopai.com/#/grapherDetail/'+x.Id, name: x.NickName})
-        })
+        if (data.Result.length === 0 ){
+          that.showError = true
+        } else {
+          that.showError = false
+          data.Result.map(function (x) {
+            that.todos.push({id: 'http://m.aiyaopai.com/#/grapherDetail/'+x.Id, name: x.NickName})
+          })
+        }
       }
       $.post('http://api.aiyaopai.com/?api=Photographer.Search', postData, function(response){
         if (response) {
