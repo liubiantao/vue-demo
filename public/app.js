@@ -6,16 +6,18 @@ new Vue({
   },
   methods: {
     send: function() {
-      let postData = {
+      var nickName = this.newTodo.trim()
+      var postData = {
         Fields: 'Id,NickName',
-        NickName: this.newTodo.trim()
+        NickName: nickName
       }
       this.todos = []
-      const show = data => (
-        data.Result.map(x => (
-          this.todos.push({id: 'http://m.aiyaopai.com/#/grapherDetail/'+x.Id, name: x.NickName})
-        ))
-      )
+      var that = this
+      function show(data) {
+        data.Result.map(function (x) {
+          that.todos.push({id: 'http://m.aiyaopai.com/#/grapherDetail/'+x.Id, name: x.NickName})
+        })
+      }
       $.post('http://api.aiyaopai.com/?api=Photographer.Search', postData, function(response){
         if (response) {
           show(response)
