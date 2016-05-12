@@ -16,10 +16,27 @@
         <li v-for="todo in todos">
           <a href="{{ todo.id }}">{{ todo.id }}</a>
           <span>{{ todo.name }}</span>
+          <button class="btn" data-clipboard-text="{{ todo.id }}">
+            复制
+          </button>
         </li>
       </ul>
     </div>
     <script src="app.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.10/clipboard.min.js"></script>
+    <script>
+      var clipboard = new Clipboard('.btn')
+      clipboard.on('success', function(e) {
+        showTooltip(e.trigger, '复制成功');
+      });
+      clipboard.on('error', function(e) {
+        showTooltip(e.trigger, '使用快捷键 Ctrl/Cmd+C 或长按链接复制');
+      });
+      function showTooltip(elem, msg) {
+          elem.setAttribute('class', 'btn tooltipped tooltipped-s');
+          elem.setAttribute('aria-label', msg);
+      }
+    </script>
   </body>
 </html>
