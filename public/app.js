@@ -24,6 +24,7 @@ new Vue({
           })
         }
       }
+
       $.post('http://api.aiyaopai.com/?api=Photographer.Search', postData, function(response){
         if (response) {
           show(response)
@@ -31,11 +32,15 @@ new Vue({
       })
     },
     makeCode: function(url) {
-      $('.qrcode').qrcode({
+      $('.modal-body').empty().qrcode({
         "size": 100,
         "color": "#3a3",
         "text": url
       });
+      $('.modal').show()
+    },
+    hide: function() {
+      $('.modal').hide()
     }
 
   }
