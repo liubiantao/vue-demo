@@ -20,7 +20,7 @@ new Vue({
         } else {
           that.showError = false
           data.Result.map(function (x) {
-            that.todos.push({id: 'http://m.aiyaopai.com/#/grapherDetail/'+x.Id, name: x.NickName})
+            that.todos.push({url: 'http://m.aiyaopai.com/#/grapherDetail/'+x.Id, name: x.NickName})
           })
         }
       }
@@ -29,6 +29,14 @@ new Vue({
           show(response)
         }
       })
+    },
+    makeCode: function(url) {
+      $('.qrcode').qrcode({
+        "size": 100,
+        "color": "#3a3",
+        "text": url
+      });
     }
+
   }
 })
