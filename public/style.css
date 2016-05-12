@@ -1,11 +1,6 @@
 body {
   font-family: Helvetica, Arial, sans-serif;
 }
-
-ul {
-  padding: 0;
-}
-
 .v-enter, .v-leave {
   height: 0;
   padding-top: 0;
@@ -14,10 +9,18 @@ ul {
   border-bottom-width: 0;
 }
 
-input {
-  margin: 100px auto;
+.form-horizontal {
+  text-align: center;
+  margin: 50px 10px;
 }
 
+.ul {
+  margin: 10px;
+}
+
+.card-content div {
+  padding: 10px;
+}
 
 .tooltipped {
     position: relative

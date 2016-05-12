@@ -5,22 +5,36 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/4.0.1/bootstrap-material-design.min.css">
     <!-- Vue -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.22/vue.min.js"></script>
   </head>
   <body>
     <div id="app">
-      <input v-model="newTodo" v-on:keyup.enter="send">
-      <button v-on:click="send">查找</button>
-      <ul>
-        <li v-for="todo in todos">
-          <a href="{{ todo.id }}">{{ todo.id }}</a>
-          <span>{{ todo.name }}</span>
-          <button class="btn" data-clipboard-text="{{ todo.id }}">
-            复制
-          </button>
-        </li>
-      </ul>
+      <div class="form-horizontal">
+        <input class="form-control" v-model="newTodo" v-on:keyup.enter="send" placeholder="请输入摄影师昵称">
+        <br />
+        <button class="btn btn-lg btn-block btn-raised btn-primary" v-on:click="send">查找</button>
+      </div>
+      <div class="ul">
+        <div v-for="todo in todos">
+          <div class="card">
+            <div class="card-content">
+              <div>
+                <a href="{{ todo.id }}">{{ todo.id }}</a>
+              </div>
+              <div>
+                <span>{{ todo.name }}</span>
+              </div>
+              <div>
+                <button class="btn btn-raised btn-success" data-clipboard-text="{{ todo.id }}">
+                  复制链接
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="app.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
